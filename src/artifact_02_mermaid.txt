@@ -1,0 +1,31 @@
+flowchart TD
+    subgraph Client["Solana Seeker Hardware (Brazil Merchant / Payer)"]
+        A[Mobile Seeker Client / dApp] -->|1. Request Auth| B[Seed Vault / MWA]
+        B -->|2. Biometric Signature| A
+        A -->|3. Solana Pay Deep Link| C[Solana Runtime Engine]
+    end
+
+    subgraph Solana["Solana Mainnet-Beta Engine"]
+        C -->|4. Invoke create_payment_intent| D[SeekerPay BR Smart Contract]
+        D -->|5. Transfer USDC/BRLA| E[Merchant Escrow PDA Vault]
+        D -->|6. Emit PaymentCreated Event| F[Anchor Event Bus / RPC WebSocket]
+    end
+
+    subgraph Relayer["Enterprise Event Orchestrator (Docker Container)"]
+        F -->|7. Stream Log / Signature| G[SeekerPay Event Consumer]
+        G -->|8. Generate BRCode PIX String| H[EMV / BACEN TLV Formatter]
+        G -->|9. Post Settlement Audit| I[Slack/Discord Webhook]
+        G -->|10. Dispatch Verified Invoice| J[Resend REST API Engine]
+    end
+
+    subgraph External["External Enterprise & Consumer Surfaces"]
+        I --> K[Enterprise Treasury Ops Channel]
+        J --> L[Merchant & Customer Verified Email Receipt]
+        H --> M[BACEN Pix Interoperability Display]
+    end
+
+    subgraph Settlement["On-Chain Finality & Release"]
+        G -->|11. Verify Real-World Clearing| D
+        D -->|12. Invoke settle_payment| N[Disburse Funds to Merchant Account]
+        D -->|13. Protocol Fee| O[Protocol Treasury PDA]
+    end

@@ -1,0 +1,19 @@
+{
+  "name": "superteam_49371aad2068",
+  "version": "1.0.0",
+  "description": "Get your Seeker app to Mainnet \ud83d\udcf1\ud83c\udde7\ud83c\uddf7 Solana Mobile Brazil special track",
+  "license": "MIT",
+  "scripts": {
+    "build": "anchor build",
+    "test": "anchor test"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.30.1",
+    "@solana/web3.js": "^1.95.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "mocha": "^10.4.0",
+    "typescript": "^5.4.5"
+  }
+}

@@ -1,0 +1,11 @@
++---------------------------------------------------------------------------------------+
+|                                SEEKERPAY BR VALUE MATRIX                              |
++-------------------+-----------------------------------+-------------------------------+
+| Metric            | Legacy Off-Ramp / Web3 Mobile     | SeekerPay BR on Solana Seeker |
++-------------------+-----------------------------------+-------------------------------+
+| Settlement Time   | 15 – 45 minutes                   | ~400ms (Solana Sub-second TX) |
+| Transaction Cost  | 2.5% – 5.0% + FX spread           | < $0.001 per payment          |
+| Key Custody       | Vulnerable software hot-wallets   | Hardware-backed Seed Vault    |
+| Brazil Compliance | Manual PIX matching / high charge | Deterministic PIX BRCode TLV  |
+| Merchant Uptime   | Intermittent Web3 dApp drops      | 99.99% Dockerized Microdaemon |
++-------------------+-----------------------------------+-------------------------------+

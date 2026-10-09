@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  seeker-bridge-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: seeker_pay_br_relayer
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
+    networks:
+      - seeker-net
+
+networks:
+  seeker-net:
+    driver: bridge
