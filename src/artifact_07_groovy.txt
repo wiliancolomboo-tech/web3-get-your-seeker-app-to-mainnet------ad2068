@@ -1,0 +1,2 @@
+implementation "com.solanamobile:seedvault-sdk:0.2.6"
+   implementation "com.solanamobile:mobile-wallet-adapter-clientlib:2.0.3"

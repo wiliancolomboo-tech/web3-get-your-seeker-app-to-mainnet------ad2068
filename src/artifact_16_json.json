@@ -1,0 +1,8 @@
+{
+  "status": "healthy",
+  "program_id": "PxSoL6R9H2tWk5Yq5mHq2dG6qMvM8rBq1pQeGz3sXyZ",
+  "network": "mainnet-beta",
+  "pyth_feed_status": "synced",
+  "uptime_seconds": 184520,
+  "last_processed_slot": 284192040
+}

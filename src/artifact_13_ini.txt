@@ -1,0 +1,5 @@
+SOLANA_RPC_URL="https://api.mainnet-beta.solana.com"
+ANCHOR_WALLET="/root/.config/solana/id.json"
+RESEND_API_KEY="re_123456789abcdef"
+ENTERPRISE_WEBHOOK_URL="https://api.example.com/webhooks/alerts/placeholder"
+PORT=8080

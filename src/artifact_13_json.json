@@ -1,0 +1,5 @@
+{
+  "invoice": "PDA_ADDRESS",
+  "signature": "CREATE_TRANSACTION_SIGNATURE",
+  "paymentUrl": "https://pay.pixana.app/i/PDA_ADDRESS"
+}

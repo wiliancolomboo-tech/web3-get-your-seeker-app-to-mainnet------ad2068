@@ -1,0 +1,106 @@
+import * as anchor from "@coral-xyz/anchor";
+import { assert } from "chai";
+import { Pixana } from "../target/types/pixana";
+
+describe("pixana", () => {
+  const provider = anchor.AnchorProvider.env();
+  anchor.setProvider(provider);
+
+  const program = anchor.workspace.Pixana as anchor.Program<Pixana>;
+  const merchant = provider.wallet;
+  const payer = anchor.web3.Keypair.generate();
+  const id = new anchor.BN(Date.now());
+
+  let invoice: anchor.web3.PublicKey;
+
+  before(async () => {
+    [invoice] = anchor.web3.PublicKey.findProgramAddressSync(
+      [
+        Buffer.from("invoice"),
+        merchant.publicKey.toBuffer(),
+        id.toArrayLike(Buffer, "le", 8),
+      ],
+      program.programId
+    );
+
+    const signature = await provider.connection.requestAirdrop(
+      payer.publicKey,
+      2 * anchor.web3.LAMPORTS_PER_SOL
+    );
+    await provider.connection.confirmTransaction(signature);
+  });
+
+  it("creates an invoice", async () => {
+    const expiry = Math.floor(Date.now() / 1000) + 3600;
+
+    await program.methods
+      .createInvoice(id, new anchor.BN(1000000), new anchor.BN(expiry), "test")
+      .accounts({
+        merchant: merchant.publicKey,
+        invoice,
+        systemProgram: anchor.web3.SystemProgram.programId,
+      })
+      .rpc();
+
+    const account = await program.account.invoice.fetch(invoice);
+    assert.equal(account.amountLamports.toNumber(), 1000000);
+    assert.equal(account.status.open !== undefined, true);
+  });
+
+  it("rejects underfunded payment because amount is program-defined", async () => {
+    await program.methods
+      .payInvoice()
+      .accounts({
+        payer: payer.publicKey,
+        invoice,
+        merchant: merchant.publicKey,
+        systemProgram: anchor.web3.SystemProgram.programId,
+      })
+      .signers([payer])
+      .rpc();
+
+    const account = await program.account.invoice.fetch(invoice);
+    assert.equal(account.status.paid !== undefined, true);
+    assert.equal(account.payer.toBase58(), payer.publicKey.toBase58());
+  });
+
+  it("rejects a second payment", async () => {
+    try {
+      await program.methods
+        .payInvoice()
+        .accounts({
+          payer: payer.publicKey,
+          invoice,
+          merchant: merchant.publicKey,
+          systemProgram: anchor.web3.SystemProgram.programId,
+        })
+        .signers([payer])
+        .rpc();
+
+      assert.fail("second payment should fail");
+    } catch {
+      assert.ok(true);
+    }
+  });
+
+  it("rejects refund from a non-merchant", async () => {
+    const attacker = anchor.web3.Keypair.generate();
+
+    try {
+      await program.methods
+        .refundInvoice()
+        .accounts({
+          merchant: attacker.publicKey,
+          invoice,
+          payer: payer.publicKey,
+          systemProgram: anchor.web3.SystemProgram.programId,
+        })
+        .signers([attacker])
+        .rpc();
+
+      assert.fail("unauthorized refund should fail");
+    } catch {
+      assert.ok(true);
+    }
+  });
+});

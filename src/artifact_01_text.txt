@@ -1,0 +1,13 @@
+Merchant creates invoice
+        ↓
+Customer scans QR on Seeker
+        ↓
+Wallet signs payment transaction
+        ↓
+Solana program validates and records receipt
+        ↓
+Indexer detects confirmed payment
+        ↓
+Merchant receives email/webhook notification
+        ↓
+Customer receives verifiable receipt URL

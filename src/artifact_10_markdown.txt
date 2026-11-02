@@ -1,0 +1,24 @@
+🧵 1/3: 🇧🇷 Pix processes 4B+ transactions/month in Brazil, but merchants still pay absurd card leasing fees & wait days for settlement.
+
+Introducing @PixSeeker — the 1st Native Tap-to-Pay POS protocol built exclusively for @SolanaMobile Seeker, bridging Brazil's Pix rails to Solana Mainnet! 📱⚡️
+
+#SolanaSeeker #SolanaMobile #SolanaBrasil
+
+---
+
+🧵 2/3: Why Seeker changes everything for Brazilian merchants:
+🔐 Seed Vault Security: Retail cashiers sign sales with hardware biometrics
+⚡️ 400ms USDC/BRZ Escrow Settlement via Solana Pay
+🧾 Automated Brazilian Portuguese invoices + tax hashes via @resend & Webhooks
+💸 0% terminal rental fees
+
+Non-custodial. Atomic. Instant.
+
+---
+
+🧵 3/3: Built during the @SolanaMobile Brazil Special Track, PixSeeker is 100% Mainnet-ready:
+✅ Non-custodial Rust/Anchor Escrow Protocol
+✅ Complete MWA integration & Seeker Genesis verification
+✅ Production Docker & telemetry
+
+Code is live: https://github.com/pixseeker/pixseeker-seeker-pos 🚀🇧🇷

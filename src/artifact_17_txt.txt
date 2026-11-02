@@ -1,0 +1,7 @@
+Powered by Seeker’s Seed Vault & MWA 2.0:
+🛡️ Hardware-isolated enclave private key signing
+⚡ Dual-rail dynamic QR: Bacen PIX + Solana Pay
+🔒 Cryptographic on-chain settlement bound by Pix EndToEndId SHA-256 hashes
+🧾 Automated bilingual tax receipts via @resend + instant @Slack alerts
+
+Zero seed exposure. <0.1% merchant fees. Goodbye 3.5% legacy card machines.

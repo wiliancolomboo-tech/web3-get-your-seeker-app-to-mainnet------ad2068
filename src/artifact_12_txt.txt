@@ -1,0 +1,6 @@
+PixPulse is Mainnet-ready, turnkey-dockerized, and open-source for every merchant from São Paulo to Salvador. 🇧🇷
+
+Built for the Solana Mobile Brazil special track. Tested, verified, and shipping today.
+
+👉 Code & Contracts: https://github.com/pixpulse-brasil/pixpulse-seeker
+cc @SolanaMobile @Solana @solanastatus

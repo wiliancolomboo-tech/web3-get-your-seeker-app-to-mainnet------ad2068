@@ -1,31 +1,25 @@
 flowchart TD
-    subgraph Client["Solana Seeker Hardware (Brazil Merchant / Payer)"]
-        A[Mobile Seeker Client / dApp] -->|1. Request Auth| B[Seed Vault / MWA]
-        B -->|2. Biometric Signature| A
-        A -->|3. Solana Pay Deep Link| C[Solana Runtime Engine]
+    subgraph MobileDevice["📱 Solana Seeker Device (Brazil Track)"]
+        A[Customer / Merchant Terminal] -->|Initiate Checkout| B[SeekerPix React Native / Kotlin Core]
+        B -->|MWA 2.0 Intent| SV[Hardware Seed Vault]
+        SV -->|Sign Transaction Payload| B
     end
 
-    subgraph Solana["Solana Mainnet-Beta Engine"]
-        C -->|4. Invoke create_payment_intent| D[SeekerPay BR Smart Contract]
-        D -->|5. Transfer USDC/BRLA| E[Merchant Escrow PDA Vault]
-        D -->|6. Emit PaymentCreated Event| F[Anchor Event Bus / RPC WebSocket]
+    subgraph SolanaNetwork["⚡ Solana Mainnet-Beta Engine"]
+        B -->|Submit Signed Tx via Jito/RPC| RPC[Solana Mainnet Validator]
+        RPC --> SC[SeekerPix Escrow Anchor Program]
+        SC -->|Mint/Transfer Settlement| MATA[Merchant SPL Token Account]
+        SC -->|Emit Settlement Event| LOGS[Solana Transaction Log Feed]
     end
 
-    subgraph Relayer["Enterprise Event Orchestrator (Docker Container)"]
-        F -->|7. Stream Log / Signature| G[SeekerPay Event Consumer]
-        G -->|8. Generate BRCode PIX String| H[EMV / BACEN TLV Formatter]
-        G -->|9. Post Settlement Audit| I[Slack/Discord Webhook]
-        G -->|10. Dispatch Verified Invoice| J[Resend REST API Engine]
+    subgraph RelayerService["🖥️ SeekerPix Enterprise Orchestrator"]
+        RELAY[Enterprise Relayer Daemon] -->|WebSocket AccountSubscribe| LOGS
+        RELAY -->|Generate BACEN QR| PIXGEN[Pix EMVCo Engine]
+        PIXGEN -->|Dynamic Pix Code| B
+        RELAY -->|Verify BACEN Webhook / Webhook Signature| BCB[BACEN DICT / Pix Rail Simulator]
     end
 
-    subgraph External["External Enterprise & Consumer Surfaces"]
-        I --> K[Enterprise Treasury Ops Channel]
-        J --> L[Merchant & Customer Verified Email Receipt]
-        H --> M[BACEN Pix Interoperability Display]
-    end
-
-    subgraph Settlement["On-Chain Finality & Release"]
-        G -->|11. Verify Real-World Clearing| D
-        D -->|12. Invoke settle_payment| N[Disburse Funds to Merchant Account]
-        D -->|13. Protocol Fee| O[Protocol Treasury PDA]
+    subgraph NotificationHub["🔔 Real-Time Notification & Audit"]
+        RELAY -->|Dispatch Payment Proof| RESEND[Resend API: Customer Receipt]
+        RELAY -->|Post Audit Alert| SLACK[Slack Webhook: Merchant Ops Channel]
     end

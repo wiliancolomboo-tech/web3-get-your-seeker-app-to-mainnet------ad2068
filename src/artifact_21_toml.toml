@@ -1,0 +1,6 @@
+[provider]
+cluster = "mainnet"
+wallet = "~/.config/solana/pixana-deployer.json"
+
+[programs.mainnet]
+pixana = "PixnA111111111111111111111111111111111111111"

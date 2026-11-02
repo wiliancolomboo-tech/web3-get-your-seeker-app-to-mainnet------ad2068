@@ -1,0 +1,12 @@
++-----------------------------------------------------------------------------------------+
+|                                OPERATIONAL HEALTH DASHBOARD                             |
++-----------------------------------------------------------------------------------------+
+| [GET] /health -> 200 OK                                                                 |
+|   { "status": "healthy", "solanaVersion": { "solana-core": "1.18.25" } }                |
+|                                                                                         |
+| Monitoring Metric           Threshold                  Action                           |
+| -------------------------   -----------------------    -------------------------------- |
+| Event Loop Lag              > 250ms                    Scale node container instances   |
+| RPC Disconnects             > 3 in 60s                 Failover to backup Triton RPC    |
+| Resend Fiscal Delivery Rate < 99.5%                    Alert on-call engineer via Slack |
++-----------------------------------------------------------------------------------------+

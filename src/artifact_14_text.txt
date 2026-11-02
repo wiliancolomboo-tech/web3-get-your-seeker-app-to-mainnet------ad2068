@@ -1,0 +1,8 @@
+Powered by Seeker’s hardware Seed Vault & Mobile Wallet Adapter (MWA 2.0):
+
+⚡ Sub-400ms settlement into BRZ / USDC
+🛡️ Hardware-isolated merchant keys (no terminal rent)
+🧾 Instant Pix fallback QR codes + auto-receipts via @resend
+📊 Fully auditable on-chain receipt PDAs
+
+Zero friction. Zero card monopolies.

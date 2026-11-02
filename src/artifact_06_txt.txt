@@ -1,0 +1,10 @@
+service/
+├── package.json
+├── tsconfig.json
+└── src/
+    ├── index.ts
+    ├── services/
+    │   ├── mailer.ts
+    │   └── webhook.ts
+    └── utils/
+        └── solana.ts

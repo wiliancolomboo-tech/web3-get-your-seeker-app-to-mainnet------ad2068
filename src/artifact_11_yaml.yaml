@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  pixsol-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pixsol-seeker-gateway
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+      - PROGRAM_ID=PixSoL1111111111111111111111111111111111111
+      - RESEND_API_KEY=re_live_enterprise_secret_pixsol
+      - DISCORD_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder
+      - MERCHANT_NOTIFICATION_EMAIL=brasil-pos@pixsol.app
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/healthz"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s

@@ -1,0 +1,6 @@
+PORT=8080
+SOLANA_MAINNET_RPC=https://mainnet.helius-rpc.com/?api-key=YOUR_KEY
+PROGRAM_ID=PixMoB1111111111111111111111111111111111111
+RESEND_API_KEY=re_enterprise_live_key_3847291847
+SLACK_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder
+NODE_ENV=production

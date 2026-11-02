@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  pixflow-service:
+    build: .
+    container_name: pixflow-seeker-daemon
+    restart: always
+    environment:
+      - PORT=3000
+      - SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+      - SOLANA_WS_URL=wss://api.mainnet-beta.solana.com
+      - PROGRAM_ID=PixFLow11111111111111111111111111111111111
+      - ORACLE_PRIVATE_KEY_JSON=[...your-mainnet-oracle-key-bytes...]
+      - RESEND_API_KEY=re_YOUR_KEY_HERE
+      - NOTIFICATION_EMAIL_FROM=receipts@pixflow.app
+      - DISCORD_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/healthz"]
+      interval: 15s
+      timeout: 5s
+      retries: 3

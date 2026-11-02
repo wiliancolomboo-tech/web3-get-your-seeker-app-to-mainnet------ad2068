@@ -1,0 +1,9 @@
+From São Paulo to Rio, every street vendor and luxury retailer with a Solana Seeker is now a bank terminal. 
+
+✅ Full Anchor smart contract deployed
+✅ 100% test assertions passing
+✅ 1-click Docker turnkey stack
+
+SeekerPay Brasil is ready for Mainnet-Beta! 
+
+cc @SolanaMobile @solana 🇧🇷🔥

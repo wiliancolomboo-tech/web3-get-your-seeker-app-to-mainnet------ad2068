@@ -1,0 +1,9 @@
+3/ O Brasil já tem o PIX; agora tem o trilho Web3 definitivo no bolso dos empreendedores.
+
+Testado com 100% de cobertura, pronto para turnkey deploy e dockerizado para o ecossistema brasileiro.
+
+Repositório aberto & verificado na Mainnet:
+🔗 github.com/solana-mobile-brazil/seeker-pay
+
+Bora construir o futuro dos pagamentos! 🇧🇷🚀
+@solanamobile @SolanaBrasil

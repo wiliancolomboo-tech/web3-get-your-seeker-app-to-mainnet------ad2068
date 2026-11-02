@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  pixflow-relayer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pixflow-brazil-relayer
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+      - PROGRAM_ID=pixf1ow111111111111111111111111111111111111
+      - RELAYER_PRIVATE_KEY_JSON=[21,44,12,89,...]
+      - WEBHOOK_HMAC_SECRET=live_secret_pix_production_key_bcb
+      - RESEND_API_KEY=re_live_98127391283
+      - SLACK_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "5"

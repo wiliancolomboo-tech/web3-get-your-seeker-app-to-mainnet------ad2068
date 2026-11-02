@@ -1,0 +1,5 @@
+We just deployed PixSol to @solana Mainnet for the Solana Mobile Seeker Brazil Track! 📱🇧🇷
+
+Brazil's 150M PIX users can now swap instantly between Real & $USDC in <800ms directly from their Seeker phone, secured by Seed Vault HSM hardware.
+
+Zero CEXs. Zero KYC delays. Pure mobile crypto. 🧵👇

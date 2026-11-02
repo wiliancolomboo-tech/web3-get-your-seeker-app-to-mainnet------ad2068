@@ -1,0 +1,11 @@
+// GET http://localhost:8080/health
+{
+  "status": "HEALTHY",
+  "service": "pixsol-seeker-gateway",
+  "network": "mainnet-beta",
+  "program_id": "PixSoL1111111111111111111111111111111111111",
+  "connected_clients": 1,
+  "uptime_seconds": 184592,
+  "resend_status": "AUTHENTICATED",
+  "timestamp": 1718000000
+}

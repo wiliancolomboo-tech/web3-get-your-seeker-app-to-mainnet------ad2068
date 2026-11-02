@@ -1,0 +1,7 @@
+Construído especificamente para o ecossistema Solana Brasil 🇧🇷:
+
+🔒 Seed Vault + SPU: Assinatura biométrica sem expor chaves privadas
+⚡️ Escrow On-Chain em Rust: Liquidação atômica e spreads zero
+📬 Automação Enterprise: Confirmações instantâneas via Resend & Discord
+
+Baixe, pague via Pix e receba USDC direto no seu Seeker! 🛡️

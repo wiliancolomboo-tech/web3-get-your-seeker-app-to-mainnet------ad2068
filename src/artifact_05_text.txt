@@ -1,0 +1,1 @@
+https://pay.pixana.app/i/<base58-invoice-pda>

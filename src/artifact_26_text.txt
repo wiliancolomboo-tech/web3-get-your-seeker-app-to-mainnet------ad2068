@@ -1,0 +1,7 @@
+Invoice creation
+→ Mobile QR checkout
+→ Wallet authorization
+→ Deterministic on-chain settlement
+→ Receipt verification
+→ Enterprise notification
+→ Refund and expiry operations

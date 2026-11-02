@@ -1,0 +1,7 @@
+The future of LatAm payments is here on @solana Mobile. 
+
+Fully open-source, Anchor audited, and live on Mainnet today:
+📦 Github: https://github.com/solana-mobile-brazil/pixsol-seeker
+📱 Test with your Seeker dev kit: https://pixsol.app
+
+Special thanks to @SolanaMobile & @solanastatus! Vamos construir! 🇧🇷⚡

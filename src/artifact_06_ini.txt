@@ -1,0 +1,7 @@
+NODE_ENV=production
+SOLANA_RPC_URL=https://mainnet.helius-rpc.com/?api-key=YOUR_HELIUS_KEY
+PROGRAM_ID=PayBR11111111111111111111111111111111111111
+RESEND_API_KEY=re_live_production_token_abc123
+SLACK_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder
+PIX_KEY=pagamentos@seekerpay.com.br
+PORT=8080

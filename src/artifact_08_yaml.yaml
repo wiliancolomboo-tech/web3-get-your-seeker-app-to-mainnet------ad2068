@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  seekerpay-relay:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: seekerpay_enterprise_relay
+    restart: always
+    environment:
+      - PORT=8080
+      - SOLANA_RPC_URL=https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}
+      - SOLANA_WSS_URL=wss://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}
+      - PROGRAM_ID=SeekerPay1111111111111111111111111111111111
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - MERCHANT_DISCORD_SLACK_WEBHOOK=${MERCHANT_DISCORD_SLACK_WEBHOOK}
+      - CUSTOMER_FALLBACK_EMAIL=recibos@seekerpay.com.br
+    ports:
+      - "8080:8080"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"

@@ -1,0 +1,8 @@
+relay-service/
+├── package.json
+├── tsconfig.json
+├── .env.example
+└── src/
+    ├── index.ts
+    ├── solana.ts
+    └── notifications.ts

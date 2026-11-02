@@ -1,0 +1,78 @@
+import {
+  AnchorProvider,
+  BN,
+  Program,
+  Wallet,
+} from "@coral-xyz/anchor";
+import {
+  Connection,
+  Keypair,
+  PublicKey,
+  SystemProgram,
+  Transaction,
+} from "@solana/web3.js";
+import idl from "./idl.json";
+
+export const connection = new Connection(
+  process.env.SOLANA_RPC_URL!,
+  "confirmed"
+);
+
+const secret = JSON.parse(process.env.MERCHANT_KEYPAIR_JSON!);
+export const merchant = Keypair.fromSecretKey(Uint8Array.from(secret));
+
+const provider = new AnchorProvider(
+  connection,
+  new Wallet(merchant),
+  { commitment: "confirmed" }
+);
+
+export const program = new Program(idl as any, provider);
+
+export function invoicePda(invoiceId: bigint): PublicKey {
+  const id = Buffer.alloc(8);
+  id.writeBigUInt64LE(invoiceId);
+  return PublicKey.findProgramAddressSync(
+    [Buffer.from("invoice"), merchant.publicKey.toBuffer(), id],
+    program.programId
+  )[0];
+}
+
+export async function createInvoice(
+  invoiceId: bigint,
+  lamports: bigint,
+  expiresAt: bigint,
+  memo: string
+) {
+  if (lamports <= 0n) throw new Error("lamports must be positive");
+  if (memo.length > 120) throw new Error("memo too long");
+
+  const [invoice] = PublicKey.findProgramAddressSync(
+    [
+      Buffer.from("invoice"),
+      merchant.publicKey.toBuffer(),
+      (() => {
+        const b = Buffer.alloc(8);
+        b.writeBigUInt64LE(invoiceId);
+        return b;
+      })(),
+    ],
+    program.programId
+  );
+
+  const signature = await program.methods
+    .createInvoice(
+      new BN(invoiceId.toString()),
+      new BN(lamports.toString()),
+      new BN(expiresAt.toString()),
+      memo
+    )
+    .accounts({
+      merchant: merchant.publicKey,
+      invoice,
+      systemProgram: SystemProgram.programId,
+    })
+    .rpc();
+
+  return { invoice: invoice.toBase58(), signature };
+}

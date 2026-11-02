@@ -1,0 +1,6 @@
+Mainnet-ready. Open source. Built for Brazilian micro-merchants and the global Solana Seeker ecosystem. 📱✨
+
+Explore our verifiable Anchor program, live test suite, and turnkey dockerized relayer on GitHub:
+👉 https://github.com/developer/seeker-pix-brazil
+
+The future of payments is mobile, decentralized, and built in Brazil! 🇧🇷⚡️

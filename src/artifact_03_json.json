@@ -1,0 +1,23 @@
+{
+  "name": "seeker-pix-agent",
+  "version": "1.0.0",
+  "description": "Enterprise Pix-to-Solana Agent for Solana Seeker Hardware",
+  "main": "dist/seeker_pix_agent.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/seeker_pix_agent.js daemon",
+    "create-invoice": "node dist/seeker_pix_agent.js create"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.30.1",
+    "@solana/spl-token": "^0.4.8",
+    "@solana/web3.js": "^1.95.3",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "resend": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "typescript": "^5.5.4"
+  }
+}

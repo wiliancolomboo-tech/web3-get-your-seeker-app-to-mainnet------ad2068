@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  seeker-pay-relay:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: seeker-pay-relay
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - NODE_ENV=production
+      - SOLANA_RPC_ENDPOINT=https://api.mainnet-beta.solana.com
+      - PROGRAM_ID=SeekerPay1111111111111111111111111111111111
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - SENDER_EMAIL=recibos@seekerpay.br
+      - MERCHANT_WEBHOOK_URL=${MERCHANT_WEBHOOK_URL}
+      - WEBHOOK_HMAC_SECRET=${WEBHOOK_HMAC_SECRET}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"

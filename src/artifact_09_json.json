@@ -1,0 +1,8 @@
+{
+  "status": "HEALTHY",
+  "network": "mainnet-beta",
+  "latest_slot": 289421034,
+  "mwa_handshake": "READY",
+  "resend_gateway": "ONLINE",
+  "uptime_seconds": 184920
+}

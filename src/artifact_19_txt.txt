@@ -1,0 +1,6 @@
+Turnkey, fully dockerized, audited Anchor codebase ready for the Solana Mobile dApp Store! 📱
+
+Tested with 100% assertions passed. Brazilian merchants can now sell with hardware-grade cryptographic speed.
+
+Check out the code & run your own node: https://github.com/solana-seeker-brazil/seeker-pay-br
+@SolanaBrasil @solanamobile Let's onboard millions! 🚀🇧🇷

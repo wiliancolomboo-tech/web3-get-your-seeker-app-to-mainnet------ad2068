@@ -1,0 +1,8 @@
+SeekerPay Brasil is 100% production-ready, Anchor-tested, containerized, and deployed to Mainnet! 
+
+Bringing real commerce to every corner of São Paulo and beyond with @SolanaBrasil & @solanamobile.
+
+Check out our open-source submission & live deployment repo: 
+🔗 https://github.com/seekerpay-brasil/core
+
+#Solana #Seeker #Web3Brasil #SolanaMobileBrazil

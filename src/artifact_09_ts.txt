@@ -1,0 +1,52 @@
+export async function notify(
+  subject: string,
+  body: string,
+  payload: unknown
+) {
+  const tasks: Promise<unknown>[] = [];
+
+  if (process.env.RESEND_API_KEY && process.env.NOTIFY_EMAIL) {
+    tasks.push(
+      fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: process.env.RESEND_FROM ?? "Pixana <receipts@pixana.app>",
+          to: [process.env.NOTIFY_EMAIL],
+          subject,
+          text: `${body}\n\n${JSON.stringify(payload, null, 2)}`,
+        }),
+      })
+    );
+  }
+
+  if (process.env.SLACK_WEBHOOK_URL) {
+    tasks.push(
+      fetch(process.env.SLACK_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          text: `*${subject}*\n${body}\n\`\`\`${JSON.stringify(payload)}\`\`\``,
+        }),
+      })
+    );
+  }
+
+  if (process.env.MERCHANT_WEBHOOK_URL) {
+    tasks.push(
+      fetch(process.env.MERCHANT_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Pixana-Event": "invoice.paid",
+        },
+        body: JSON.stringify(payload),
+      })
+    );
+  }
+
+  await Promise.allSettled(tasks);
+}

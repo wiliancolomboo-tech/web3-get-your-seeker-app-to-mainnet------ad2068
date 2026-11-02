@@ -1,0 +1,7 @@
+{
+  "status": "healthy",
+  "network": "mainnet-beta",
+  "solana_slot_height": 289410920,
+  "resend_gateway": "connected",
+  "active_subscriptions": 1
+}

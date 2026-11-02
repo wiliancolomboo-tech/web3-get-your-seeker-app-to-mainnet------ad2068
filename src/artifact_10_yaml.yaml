@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  seeker-bridge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: seeker_pay_br_relayer
+    restart: always
+    environment:
+      - PORT=8080
+      - SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+      - DISCORD_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder
+      - PIX_RECEIVER_KEY=financeiro@seekerpay.com.br
+      - METRICS_ENABLED=true
+    ports:
+      - "8080:8080"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"

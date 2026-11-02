@@ -1,0 +1,50 @@
+import { connection, program } from "./solana";
+import { notify } from "./notifications";
+
+const processed = new Set<string>();
+
+export async function scan() {
+  const signatures = await connection.getSignaturesForAddress(
+    program.programId,
+    { limit: 100 }
+  );
+
+  for (const item of signatures.reverse()) {
+    if (item.err || processed.has(item.signature)) continue;
+
+    const tx = await connection.getTransaction(item.signature, {
+      commitment: "confirmed",
+      maxSupportedTransactionVersion: 0,
+    });
+
+    if (!tx?.meta?.logMessages) continue;
+
+    const paid = tx.meta.logMessages.some((x) =>
+      x.includes("Instruction: PayInvoice")
+    );
+
+    if (paid) {
+      processed.add(item.signature);
+      await notify(
+        "Pixana payment confirmed",
+        "A payment was confirmed on Solana.",
+        {
+          signature: item.signature,
+          slot: tx.slot,
+          explorer: `https://explorer.solana.com/tx/${item.signature}?cluster=mainnet-beta`,
+        }
+      );
+    }
+  }
+}
+
+export async function runIndexer() {
+  for (;;) {
+    try {
+      await scan();
+    } catch (error) {
+      console.error("indexer error", error);
+    }
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+  }
+}

@@ -1,8 +1,19 @@
-# .env Configuration
-SOLANA_RPC_URL=https://mainnet.helius-rpc.com/?api-key=YOUR_HELIUS_KEY
-SOLANA_WS_URL=wss://mainnet.helius-rpc.com/?api-key=YOUR_HELIUS_KEY
-PROGRAM_ID=SeekrBR111111111111111111111111111111111111
-RESEND_API_KEY=re_enterprise_test_123456789
-SLACK_WEBHOOK_URL=https://hooks.slack.com/services/T00/B00/XXXX
-NOTIFICATION_SENDER=faturamento@seekerpay.br
-PORT=8080
+# 1. Configure CLI environment to Solana Mainnet-Beta
+solana config set --url https://api.mainnet-beta.solana.com
+solana config set --keypair /root/.config/solana/seekerpay-authority.json
+
+# 2. Verify Deployer Balance (Requires ~3.5 SOL for rent exemption and state)
+solana balance
+
+# 3. Build program with Anchor deterministic verifiable build
+anchor build --verifiable
+
+# 4. Deploy Program to Solana Mainnet
+solana program deploy \
+  --program-id SekrBRZ111111111111111111111111111111111111 \
+  target/verifiable/seekerpay_pos.so
+
+# 5. Initialize IDL on-chain
+anchor idl init \
+  --filepath target/idl/seekerpay_pos.json \
+  SekrBRZ111111111111111111111111111111111111

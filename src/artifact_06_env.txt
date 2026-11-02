@@ -1,0 +1,6 @@
+SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+PROGRAM_ID=SeekPix8zV4aRk7g3YtQ91mK4wX2nN6vB8pL9sD1oMn
+PAYMASTER_SECRET_KEY="[1,2,3...]" # 64-byte JSON array
+RESEND_API_KEY=re_your_enterprise_resend_key
+MERCHANT_DISCORD_WEBHOOK=https://api.example.com/webhooks/alerts/placeholder
+PORT=8080

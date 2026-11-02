@@ -1,0 +1,4 @@
+seekerpay_invoices_created_total 1420
+  seekerpay_invoices_settled_total 1389
+  seekerpay_volume_settled_usdc 48921.50
+  solana_rpc_latency_seconds 0.384

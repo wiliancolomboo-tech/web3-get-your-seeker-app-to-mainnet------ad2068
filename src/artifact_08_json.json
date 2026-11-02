@@ -1,0 +1,7 @@
+{
+  "status": "healthy",
+  "network": "mainnet-beta",
+  "relayerPubkey": "Relay444444444444444444444444444444444444444",
+  "solanaSlot": 298412491,
+  "queueLatencyMs": 142
+}

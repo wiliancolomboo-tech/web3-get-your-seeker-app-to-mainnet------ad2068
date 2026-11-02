@@ -1,0 +1,25 @@
+FROM node:20-slim AS builder
+
+WORKDIR /usr/src/app
+COPY relayer/package*.json ./
+RUN npm ci
+
+COPY relayer/tsconfig.json ./
+COPY relayer/src ./src
+RUN npm run build
+
+FROM node:20-slim AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+
+COPY relayer/package*.json ./
+RUN npm ci --only=production
+
+COPY --from=builder /usr/src/app/dist ./dist
+
+USER node
+EXPOSE 8080
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:8080/health', (r) => {if (r.statusCode !== 200) process.exit(1);});"
+
+CMD ["node", "dist/index.js"]

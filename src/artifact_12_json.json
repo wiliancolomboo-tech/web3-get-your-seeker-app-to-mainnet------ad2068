@@ -1,0 +1,7 @@
+GET /health
+   {
+     "status": "healthy",
+     "connected_cluster": "mainnet-beta",
+     "websocket_alive": true,
+     "processed_events": 1420
+   }

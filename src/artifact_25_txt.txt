@@ -1,0 +1,5 @@
+How PixSol leverages the Solana Mobile Seeker:
+1️⃣ MWA 2.0: Biometric Seed Vault authorization for instant signing
+2️⃣ Gasless Relaying: Octane-compatible fee payer sponsors on-chain transactions
+3️⃣ Instant PIX Settlement: Real-time BACEN SPI integration with on-chain PDA escrow release
+4️⃣ Proof via @resend: Certified transaction audit slips

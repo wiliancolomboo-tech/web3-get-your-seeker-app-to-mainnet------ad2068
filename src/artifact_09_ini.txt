@@ -1,0 +1,8 @@
+PORT=8080
+NODE_ENV=production
+SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+RELAYER_SECRET_KEY=base58_encoded_relayer_private_key
+PIX_WEBHOOK_HMAC_SECRET=b07a5f22e8964893be48bf7f29aa4dc75d33a
+RESEND_API_KEY=re_123456789abcdef012345678
+OPS_DISCORD_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder
+PROGRAM_ID=Pix1111111111111111111111111111111111111111

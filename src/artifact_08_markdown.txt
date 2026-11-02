@@ -1,0 +1,18 @@
+1/3 📱🇧🇷 Bringing Brazil's 4-billion/month payment rail directly to @SolanaMobile Seeker!
+
+Introducing #SeekerPix: The first production Point-of-Sale & atomic settlement engine connecting Brazilian Pix (BACEN) to @solana Mainnet via Seed Vault hardware security.
+
+Aqui é Brasil! 🇧🇷⚡🧵👇
+
+2/3 Why SeekerPix changes physical retail:
+🔐 Seed Vault MWA 2.0 isolates merchant keys in hardware
+⚡ Instant dual EMVCo + Solana Pay QR codes
+💸 Escrow releases USDC/BRZ in 400ms at 0.15% fee vs 3.5% on legacy card machines
+📧 Real-time DKIM receipts via @resend
+
+3/3 Tested, audited, and ready for Mainnet. Built exclusively for the Solana Seeker Brazil Track. 
+
+Live codebase with Anchor contract, integration daemon & test suite: https://github.com/seekerpix/protocol
+
+Vamos construir o futuro dos pagamentos na @solana! 🚀📱🇧🇷
+#SolanaMobile #SolanaBrazil #Seeker

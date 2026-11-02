@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  seeker-pix-relayer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: seeker_pix_orchestrator
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+      - PROGRAM_ID=Pix1111111111111111111111111111111111111111
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL}
+      - EMAIL_FROM=notificacoes@seekerpix.com.br
+      - PORT=8080
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"

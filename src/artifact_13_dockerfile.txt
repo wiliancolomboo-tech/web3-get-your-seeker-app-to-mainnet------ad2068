@@ -1,0 +1,23 @@
+# Multi-stage build for production-ready distribution
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY service/package*.json ./
+RUN npm ci
+COPY service/tsconfig.json ./
+COPY service/src ./src
+RUN npm run build
+
+FROM node:20-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+COPY service/package*.json ./
+RUN npm ci --only=production
+COPY --from=builder /app/dist ./dist
+
+USER node
+EXPOSE 8080
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:8080/healthz || exit 1
+
+CMD ["node", "dist/index.js"]

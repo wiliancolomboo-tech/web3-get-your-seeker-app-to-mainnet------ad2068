@@ -1,0 +1,10 @@
+SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+MERCHANT_KEYPAIR_JSON=[1,2,3]
+PAYMENT_BASE_URL=https://pay.pixana.app
+PORT=8080
+
+RESEND_API_KEY=
+NOTIFY_EMAIL=
+RESEND_FROM=Pixana <receipts@pixana.app>
+SLACK_WEBHOOK_URL=
+MERCHANT_WEBHOOK_URL=

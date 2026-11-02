@@ -1,0 +1,8 @@
+We've officially deployed SeekerPix to @solana Mainnet for the Solana Mobile Brazil special track! 🚀
+
+Open-source, non-custodial, and ready for thousands of Brazilian micro-merchants on Day 1.
+
+Check the live GitHub repository & try the PoS simulator:
+👉 github.com/seekerpix/seekerpay-brasil
+
+#SolanaSeeker #SolanaMobile #BrazilWeb3

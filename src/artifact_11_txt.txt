@@ -1,0 +1,8 @@
+How does PixPulse turn Seeker into Brazil's best point-of-sale?
+
+1️⃣ Dual-QR: Generates Solana Pay + BACEN EMVCo Pix concurrently
+2️⃣ Biometric Seed Vault: Hardware-isolated Ed25519 signing via MWA 2.0
+3️⃣ Anchor Engine: 10 BPS protocol split & sub-second settlement
+4️⃣ Real-time Tax Receipts: Dispatched in 400ms via @resend
+
+100% on-chain, 0% custodial exposure. 🛡️

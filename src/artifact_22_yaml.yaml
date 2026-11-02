@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  pixsol-relayer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pixsol_mainnet_gateway
+    restart: always
+    environment:
+      - PORT=8080
+      - SOLANA_RPC_URL=${SOLANA_RPC_URL:-https://api.mainnet-beta.solana.com}
+      - PIXSOL_PROGRAM_ID=PixSoL1111111111111111111111111111111111111
+      - RELAYER_PRIVATE_KEY=${RELAYER_PRIVATE_KEY}
+      - RESEND_API_KEY=${RESEND_API_KEY}
+    ports:
+      - "8080:8080"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"

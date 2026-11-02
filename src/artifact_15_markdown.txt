@@ -1,0 +1,18 @@
+1/3 📱🇧🇷 Bringing the power of @SolanaMobile Seeker directly to Brazil’s 150M+ Pix users! 
+
+Introducing SeekerPix: the first enterprise POS protocol bridging Central Bank of Brazil EMVCo Pix dynamic QR codes with Solana Pay & Seed Vault hardware signing on #Solana Seeker. 
+
+T+0 settlements. 0.05% fees. Zero intermediaries. 🧵👇
+
+2/3 Traditional Brazilian merchant rails charge 3-5% with T+30 delays. 
+
+SeekerPix leverages Seeker's hardware-isolated Seed Vault via MWA 2.0 to authorize instant stablecoin settlements (USDC/BRZ) in 400ms, streaming customizable yield splits directly into DeFi vaults while issuing real-time fiscal email receipts via @resend. ⚡
+
+3/3 Built for the Solana Mobile Brazil special track.
+✅ Fully tested Anchor contract with 100% assertions passed
+✅ Nonce-checked dynamic EMVCo CRC16 Pix payload generator
+✅ Turnkey Docker setup + live Discord/Slack PoS webhooks
+
+Mainnet ready for Seeker! 🚀🇧🇷
+GitHub: https://github.com/seekerpix/seeker-pix-protocol
+#Solana #SolanaMobile #SolanaBrazil #Seeker

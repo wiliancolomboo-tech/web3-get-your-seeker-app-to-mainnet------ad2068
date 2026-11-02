@@ -1,0 +1,19 @@
+[toolchain]
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.mainnet]
+pagsol_seeker = "SeekerPay11111111111111111111111111111111111"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "Mainnet"
+wallet = "~/.config/solana/mainnet-deployer.json"
+
+[scripts]
+test = "yarn run ts-node tests/pagsol_seeker.ts"
+init-mainnet = "yarn run ts-node scripts/init-protocol.ts"

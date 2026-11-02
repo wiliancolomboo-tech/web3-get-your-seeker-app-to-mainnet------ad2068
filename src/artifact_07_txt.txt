@@ -1,0 +1,2 @@
+tests/
+└── seeker_pix.spec.ts

@@ -1,0 +1,63 @@
+import express from "express";
+import { createInvoice, invoicePda, connection } from "./solana";
+import { runIndexer } from "./indexer";
+
+const app = express();
+app.use(express.json());
+
+app.get("/healthz", (_, res) => res.json({ ok: true }));
+app.get("/readyz", async (_, res) => {
+  try {
+    await connection.getLatestBlockhash();
+    res.json({ ready: true });
+  } catch {
+    res.status(503).json({ ready: false });
+  }
+});
+
+app.post("/v1/invoices", async (req, res) => {
+  try {
+    const { invoiceId, lamports, expiresAt, memo = "" } = req.body;
+
+    if (
+      !Number.isSafeInteger(invoiceId) ||
+      !Number.isSafeInteger(lamports) ||
+      !Number.isSafeInteger(expiresAt)
+    ) {
+      return res.status(400).json({ error: "integer fields are required" });
+    }
+
+    const result = await createInvoice(
+      BigInt(invoiceId),
+      BigInt(lamports),
+      BigInt(expiresAt),
+      String(memo)
+    );
+
+    return res.status(201).json({
+      ...result,
+      paymentUrl: `${process.env.PAYMENT_BASE_URL}/i/${result.invoice}`,
+    });
+  } catch (e) {
+    return res.status(400).json({
+      error: e instanceof Error ? e.message : "invoice creation failed",
+    });
+  }
+});
+
+app.get("/v1/invoices/:address", async (req, res) => {
+  try {
+    const account = await program.account.invoice.fetch(
+      invoicePda(BigInt(req.params.address))
+    );
+    res.json(account);
+  } catch {
+    res.status(404).json({ error: "invoice not found" });
+  }
+});
+
+const port = Number(process.env.PORT ?? 8080);
+app.listen(port, () => {
+  console.log(`Pixana API listening on ${port}`);
+  void runIndexer();
+});

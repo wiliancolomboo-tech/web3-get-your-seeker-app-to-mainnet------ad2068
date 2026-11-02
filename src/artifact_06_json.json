@@ -1,0 +1,24 @@
+{
+  "name": "seeker-pay-br-daemon",
+  "version": "1.0.0",
+  "description": "SeekerPay Brazil Enterprise Daemon and EMVCo PIX Bridge",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "ts-mocha -p ./tsconfig.json tests/**/*.ts"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.30.1",
+    "@solana/spl-token": "^0.4.8",
+    "@solana/web3.js": "^1.95.3",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.28.1",
+    "resend": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  }
+}

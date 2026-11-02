@@ -1,0 +1,31 @@
+flowchart TD
+    subgraph ClientLayer["Solana Seeker Device (Android / SMS 2.0)"]
+        A[Merchant Terminal UI] -->|Initiates Order| B[Order State Builder]
+        B -->|Generates BRL/USDC Quote| C[MWA 2.0 Session Request]
+        C -->|Hardware Biometric Auth| D[Seed Vault Enclave]
+        D -->|Signs Transaction| E[Raw Signed Transaction]
+    end
+
+    subgraph SolanaBlockchain["Solana Mainnet-Beta"]
+        E -->|Submit via RPC / Jito Engine| F["PixSol Smart Contract (pixsol_core)"]
+        F -->|Derive PDA| G["Order Escrow Account [order_id, merchant]"]
+        G -->|Lock SPL Tokens| H["Escrow Vault Token Account (ATA)"]
+        F -->|Emit Event| I["Event: OrderCreated"]
+    end
+
+    subgraph EnterpriseRelayer["Off-Chain Enterprise Relayer & Validator Engine"]
+        I -->|WebSocket Account / Program Subscribe| J[Geyser / Fast RPC Node]
+        J -->|Push Order Event| K[PixSol Relayer Service]
+        K -->|Generate Pix Dynamic QR / Payload| L[BCB EMV Standard Engine]
+        L -->|Render Payment Screen| A
+        M[Brazilian Pix Banking Gateway] -->|Webhook: Pix Transfer Settled| K
+        K -->|Signs Settlement Attestation| N[Attestation Keypair]
+        N -->|Submit 'fulfill_order'| F
+    end
+
+    subgraph EnterpriseNotification["Enterprise Dispatch & Telemetry"]
+        F -->|Emit Event: OrderSettled| O[Event Consumer Service]
+        O -->|Trigger REST API| P[Resend Enterprise Email Service]
+        O -->|Audit Alert Webhook| Q[Discord / Slack Operations Channel]
+        P -->|HTML Receipt with Proof Hash| R[Customer / Merchant Inbox]
+    end

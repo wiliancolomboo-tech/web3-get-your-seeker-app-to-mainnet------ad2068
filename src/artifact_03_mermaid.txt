@@ -1,0 +1,22 @@
+flowchart TD
+    subgraph ClientLayer ["Mobile Edge: Solana Seeker Hardware"]
+        A[Android Native UI] --> B[MWA v2.0 Client]
+        B --> C[Seed Vault Secure Storage]
+        B --> D[Solana Pay QR Generator]
+    end
+
+    subgraph SolanaMainnet ["Solana Mainnet-Beta Protocol"]
+        E[Compute Budget 200k CU] --> F[SeekerPay Settlement Program]
+        F --> G[(Merchant State PDA)]
+        F --> H[(Vault Token Account)]
+        F --> I[(Protocol Treasury Account)]
+    end
+
+    subgraph EnterpriseBacking ["Enterprise Event & Notification Fabric"]
+        F -.->|Log Emit: PaymentSettled| J[Relayer Microservice]
+        J --> K[Resend Email API]
+        J --> L[Discord / Slack Audit Webhook]
+        J --> M[Prometheus Metric Collector]
+    end
+
+    ClientLayer -->|Atomic Transaction via Mobile RPC| SolanaMainnet

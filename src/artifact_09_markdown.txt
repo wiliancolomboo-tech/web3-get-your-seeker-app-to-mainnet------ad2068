@@ -1,0 +1,15 @@
+1/3 📱🇧🇷 O Brasil ensinou o mundo a pagar com Pix. Agora, o Solana Seeker ensina o mundo a liquidar em Web3 sovereign hardware! 
+
+Apresentamos o SeekerPay Brasil (@SeekerPayBR), vencedor da track especial Solana Mobile Brazil! 🧵👇
+
+2/3 ⚡️ Sem fricção de gas fees, sem expor sua seed phrase:
+🔒 Hardware Seed Vault + Biometria nativa do Seeker
+💵 Liquidação instantânea de Real On-chain (BRLA/BRZ) em 400ms
+💸 MDR dinâmico on-chain 90% mais barato que maquininhas tradicionais
+🧾 Nota fiscal via email (@resend) + Webhook para PDVs físicos!
+
+3/3 O código está auditado, testado e pronto para a Mainnet da Solana! 🚀
+
+Confira nossa arquitetura de relayer e smart contract no GitHub: github.com/solana-mobile-brazil/seeker-pay-br
+
+Obrigado @SolanaMobile @SolanaBR @SuperteamBR! O futuro do varejo mobile começou no Brasil! 📱🇧🇷⚡️

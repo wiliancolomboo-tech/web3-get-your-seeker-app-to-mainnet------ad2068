@@ -1,0 +1,7 @@
+We’re not shipping a prototype—SeekerPay Brasil is 100% turnkey, audited with Anchor 0.30, containerized with Docker, and live for testing!
+
+Experience the future of Web3 mobile commerce in Latin America:
+📦 Open-source repo & Mainnet runbook: https://github.com/seekerpay/seekerpay-brasil
+🌐 Live demo: https://seekerpay.br
+
+Vem pra Mainnet! 🇧🇷✨

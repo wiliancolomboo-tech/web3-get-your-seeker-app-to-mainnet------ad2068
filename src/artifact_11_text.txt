@@ -1,0 +1,7 @@
+3/4 🛡️ Built for enterprise scale:
+✅ Anchor 0.30.1 contract deployed to Mainnet-Beta
+✅ Automated receipts via @resend
+✅ Real-time telemetry webhooks
+✅ Fully Dockerized turn-key backend
+
+Check out the verified contract & open-source repo: https://github.com/pixflow-solana/pixflow-seeker-brazil 🇧🇷🔥

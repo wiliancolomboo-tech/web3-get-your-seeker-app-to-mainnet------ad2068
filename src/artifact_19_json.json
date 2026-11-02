@@ -1,0 +1,7 @@
+{
+     "status": "healthy",
+     "network": "mainnet-beta",
+     "slot": 298412093,
+     "seed_vault_mwa_active": true,
+     "resend_connected": true
+   }

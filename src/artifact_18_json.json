@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "anchor test",
+    "lint": "eslint .",
+    "docker:up": "docker compose up -d --build",
+    "docker:logs": "docker compose logs -f"
+  }
+}

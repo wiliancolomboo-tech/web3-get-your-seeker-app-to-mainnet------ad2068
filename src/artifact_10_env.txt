@@ -1,0 +1,6 @@
+PORT=8080
+SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+ORACLE_PRIVATE_KEY=[12,45,231, ... ,89]
+RESEND_API_KEY=re_live_brazil_seeker_xxxxxxx
+SLACK_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder
+PIX_WEBHOOK_SECRET=pix_sec_brazil_seeker_prod_99
