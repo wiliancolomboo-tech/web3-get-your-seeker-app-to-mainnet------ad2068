@@ -3,5 +3,5 @@ PORT=8080
 SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
 PROGRAM_ID=PixPaySeeker1111111111111111111111111111111
 ORACLE_PRIVATE_KEY=[12,34,56, ... 64_bytes_array ...]
-RESEND_API_KEY=re_live_xxxxxxxxxxxxxxxxxxxxxxxx
+RESEND_API_KEY=re_test_000000000000000000000000
 DISCORD_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder

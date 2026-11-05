@@ -1,5 +1,5 @@
 PORT=8080
    NODE_ENV=production
    SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
-   RESEND_API_KEY=re_live_sec_xxxxxxxxxxxx
+   RESEND_API_KEY=re_test_000000000000000000000000
    DISCORD_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder

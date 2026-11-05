@@ -15,7 +15,7 @@ const RPC_URL = process.env.SOLANA_RPC_URL || "https://api.mainnet-beta.solana.c
 const PROGRAM_ID = new web3.PublicKey(
   process.env.PIXSOL_PROGRAM_ID || "PixSoL1111111111111111111111111111111111111"
 );
-const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_test_mock_key";
+const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_test_000000000000000000000000";
 const RELAYER_KEYPAIR_RAW = process.env.RELAYER_PRIVATE_KEY;
 
 if (!RELAYER_KEYPAIR_RAW) {

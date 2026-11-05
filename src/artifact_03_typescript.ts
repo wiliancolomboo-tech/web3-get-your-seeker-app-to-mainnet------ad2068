@@ -30,7 +30,7 @@ const relayerKeypair = Keypair.fromSecretKey(RELAYER_SECRET_KEY);
 const PROGRAM_ID = new PublicKey(
   process.env.PROGRAM_ID || "PixSoL1111111111111111111111111111111111111"
 );
-const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_test_dummy_key_production";
+const RESEND_API_KEY = process.env.RESEND_API_KEY || "re_test_000000000000000000000000";
 const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL || "";
 
 const resend = new Resend(RESEND_API_KEY);

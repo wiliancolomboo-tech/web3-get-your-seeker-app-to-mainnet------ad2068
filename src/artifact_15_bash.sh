@@ -1,5 +1,5 @@
 # 1. Export required enterprise environment variables
-export RESEND_API_KEY="re_live_production_secret_key"
+export RESEND_API_KEY="re_test_000000000000000000000000"
 export MERCHANT_WEBHOOK_URL="https://merchant-api.empresa.com.br/v1/seeker-notify"
 export WEBHOOK_HMAC_SECRET="7f9e8d4a6b2c1e0f"
 

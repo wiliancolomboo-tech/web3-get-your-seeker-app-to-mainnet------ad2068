@@ -1,7 +1,7 @@
 PORT=8080
 SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
 PROGRAM_ID=PixLink1111111111111111111111111111111111111
-RESEND_API_KEY=re_sample_key_982348712394
+RESEND_API_KEY=re_test_000000000000000000000000
 RESEND_FROM_EMAIL=recibos@pixlink.solana.br
 MERCHANT_ALERT_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder
 DEMO_PAYER_EMAIL=cliente@dominio.com.br

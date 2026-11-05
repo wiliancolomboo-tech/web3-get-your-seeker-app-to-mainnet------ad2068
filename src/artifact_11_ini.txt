@@ -4,7 +4,7 @@ PROGRAM_ID=PixSeeker11111111111111111111111111111111111
 
 # Brazilian Fiscal & Enterprise Integration Keys
 MERCHANT_CNPJ=12345678000195
-RESEND_API_KEY=re_123456789abcdefghijklmnopqrstuvwxyz
+RESEND_API_KEY=re_test_000000000000000000000000
 DISCORD_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder
 TEST_CUSTOMER_EMAIL=fiscal@suaempresa.com.br
 PORT=8080

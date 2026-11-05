@@ -3,5 +3,5 @@ PORT=8080
 SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
 PROGRAM_ID=SekrPay1111111111111111111111111111111111111
 ACCEPTED_MINT=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v # Official Solana USDC
-RESEND_API_KEY=re_live_enterprise_token_here
+RESEND_API_KEY=re_test_000000000000000000000000
 DISCORD_SLACK_WEBHOOK_URL=https://api.example.com/webhooks/alerts/placeholder
